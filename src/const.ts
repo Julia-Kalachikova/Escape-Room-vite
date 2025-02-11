@@ -13,3 +13,9 @@ export enum HeaderMenu {
   Favorites = 'Мои бронирования',
   Exit = 'Выйти',
 }
+
+export enum LoginStatus {
+  Auth = 'AUTH',
+  NotAuth = 'NOT_AUTH',
+  Unknown = 'UNKNOWN',
+}
