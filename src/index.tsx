@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/app/app';
+import { Cards } from './mocks/mocks';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+
 root.render(
   <React.StrictMode>
-    <h1>Hello, World!</h1>
+    <BrowserRouter>
+      <App cards={Cards}/>
+    </BrowserRouter>
   </React.StrictMode>
 );
