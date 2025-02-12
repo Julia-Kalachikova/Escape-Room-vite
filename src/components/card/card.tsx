@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
-import { CardType } from '../../types';
+import { CardBelonging, CardType } from '../../types';
+import { RoutePath } from '../../const';
+import QuestCardInfo from '../quest-card-info/quest-card-info';
+import ButtonCancel from '../button-cancel/button-cancel';
 
 type Props = {
   card: CardType;
+  cardBelonging: CardBelonging;
 }
 
-export default function Card({card}: Props): JSX.Element {
+export default function Card({card, cardBelonging}: Props): JSX.Element {
   const {title, previewImg, previewImgWebp, level, peopleMinMax} = card;
   return (
     <div className='quest-card'>
@@ -26,7 +30,8 @@ export default function Card({card}: Props): JSX.Element {
       </div>
       <div className='quest-card__content'>
         <div className='quest-card__info-wrapper'>
-          <Link className='quest-card__link' to='quest.html'>{title}</Link>
+          <Link className='quest-card__link' to={RoutePath.Quest}>{title}</Link>
+          {cardBelonging === ' decorated-page' ? <QuestCardInfo/> : ''}
         </div>
         <ul className='tags quest-card__tags'>
           <li className='tags__item'>
@@ -48,6 +53,7 @@ export default function Card({card}: Props): JSX.Element {
             </svg>{level}
           </li>
         </ul>
+        {cardBelonging === ' decorated-page' ? <ButtonCancel /> : ''}
       </div>
     </div>
   );

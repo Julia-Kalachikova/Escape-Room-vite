@@ -7,3 +7,5 @@ export type CardType = {
   type: string;
   peopleMinMax: number[];
 };
+
+export type CardBelonging = ' decorated-page';
