@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import { RoutePath } from '../../const';
 
 export default function QuestPage(): JSX.Element {
   return (
@@ -9,8 +10,17 @@ export default function QuestPage(): JSX.Element {
       <main className='decorated-page quest-page'>
         <div className='decorated-page__decor' aria-hidden='true'>
           <picture>
-            <source type='image/webp' srcSet='img/content/maniac/maniac-size-m.webp, img/content/maniac/maniac-size-m@2x.webp 2x' />
-            <img src='img/content/maniac/maniac-size-m.jpg' srcSet='img/content/maniac/maniac-size-m@2x.jpg 2x' width='1366' height='768' alt='' />
+            <source
+              type='image/webp'
+              srcSet='img/content/maniac/maniac-size-m.webp, img/content/maniac/maniac-size-m@2x.webp 2x'
+            />
+            <img
+              src='img/content/maniac/maniac-size-m.jpg'
+              srcSet='img/content/maniac/maniac-size-m@2x.jpg 2x'
+              width='1366'
+              height='768'
+              alt=''
+            />
           </picture>
         </div>
         <div className='container container--size-l'>
@@ -31,7 +41,7 @@ export default function QuestPage(): JSX.Element {
               </li>
             </ul>
             <p className='quest-page__description'>В&nbsp;комнате с&nbsp;приглушённым светом несколько человек, незнакомых друг с&nbsp;другом, приходят в&nbsp;себя. Никто не&nbsp;помнит, что произошло прошлым вечером. Руки и&nbsp;ноги связаны, но&nbsp;одному из&nbsp;вас получилось освободиться. На&nbsp;стене висит пугающий таймер и&nbsp;запущен отсчёт 60&nbsp;минут. Сможете&nbsp;ли вы&nbsp;разобраться в&nbsp;стрессовой ситуации, помочь другим, разобраться что произошло и&nbsp;выбраться из&nbsp;комнаты?</p>
-            <Link className='btn btn--accent btn--cta quest-page__btn' to='booking.html'>Забронировать</Link>
+            <Link className='btn btn--accent btn--cta quest-page__btn' to={RoutePath.Booking}>Забронировать</Link>
           </div>
         </div>
       </main>

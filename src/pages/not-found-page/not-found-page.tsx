@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { RoutePath } from '../../const';
 
-export default function NotFound(): JSX.Element {
+export default function NotFoundPage(): JSX.Element {
   return (
     <div style={{ display: 'block', margin: 'auto', width: 'max-content', textAlign: 'center' }}>
       <h1>404</h1>
