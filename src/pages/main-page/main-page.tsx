@@ -1,13 +1,13 @@
 import CardList from '../../components/card-list/card-list';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-import { CardType } from '../../types';
+import { getCards } from '../../store/modules/cards/selector-cards';
+import { useAppSelector } from '../../store/store-hooks';
 
-type Props = {
-  cards: CardType[];
-}
+export default function MainPage(): JSX.Element {
 
-export default function MainPage({cards}: Props): JSX.Element {
+  const cards = useAppSelector(getCards);
+
   return (
     <div className='wrapper'>
       <Header />

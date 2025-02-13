@@ -1,3 +1,4 @@
+
 export enum RoutePath {
   Main = '/',
   Login = '/login',
@@ -20,3 +21,16 @@ export enum LoginStatus {
   NotAuth = 'NOT_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+export enum APIRoutes {
+  Cards = '/quest',
+  Login = '/login',
+  Logout = '/logout',
+}
+
+export const FeatureModule = {
+  CARDS: 'cards',
+  QUEST: 'quest',
+  FAVORITE: 'favorite',
+  AUTH: 'auth',
+} as const;

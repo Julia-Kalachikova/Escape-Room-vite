@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-import CityMap from '../../components/map/city-map';
+import CityMap from '../../components/city-map/city-map';
 
 export default function ContactsPage(): JSX.Element {
   return (

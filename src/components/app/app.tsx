@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { LoginStatus, RoutePath } from '../../const';
 import MainPage from '../../pages/main-page/main-page';
-import { CardType } from '../../types';
 import LoginPage from '../../pages/login-page/login-page';
 import QuestPage from '../../pages/quest-page/quest-page';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
@@ -9,21 +8,25 @@ import PrivateRoute from '../private-rout/private-rout';
 import BookingPage from '../../pages/booking-page/booking-page';
 import FavoritePage from '../../pages/favorite-page/favorite-page';
 import ContactsPage from '../../pages/contacts-page/contacts-page';
+import { useAppDispatch } from '../../store/store-hooks';
+import { useEffect } from 'react';
+import { fetchCardsAction } from '../../store/modules/cards/api-action-cards';
+import { checkAuthStatus } from '../../store/modules/auth/api-action-auth';
 
 
-type Props = {
-  cards: CardType[];
-}
+export default function App(): JSX.Element {
+  const dispatch = useAppDispatch();
 
-export default function App({cards}: Props): JSX.Element {
+  useEffect(() => {
+    dispatch(checkAuthStatus());
+    dispatch(fetchCardsAction());
+  }, [dispatch]);
   return (
     <Routes>
       <Route
         path={RoutePath.Main}
         element={
-          <MainPage
-            cards={cards}
-          />
+          <MainPage />
         }
       />
       <Route
