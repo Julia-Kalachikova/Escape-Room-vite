@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import CityMap from '../../components/city-map/city-map';
 
 export default function ContactsPage(): JSX.Element {
   return (
@@ -9,8 +10,8 @@ export default function ContactsPage(): JSX.Element {
       <main className='page-content decorated-page'>
         <div className='decorated-page__decor' aria-hidden='true'>
           <picture>
-            <source type='image/webp' srcSet='img/content/maniac/maniac-bg-size-m.webp, img/content/maniac/maniac-bg-size-m@2x.webp 2x'/>
-            <img src='img/content/maniac/maniac-bg-size-m.jpg' srcSet='img/content/maniac/maniac-bg-size-m@2x.jpg 2x' width='1366' height='1959' alt=''/>
+            <source type='image/webp' srcSet='img/content/maniac/maniac-bg-size-m.webp, img/content/maniac/maniac-bg-size-m@2x.webp 2x' />
+            <img src='img/content/maniac/maniac-bg-size-m.jpg' srcSet='img/content/maniac/maniac-bg-size-m@2x.jpg 2x' width='1366' height='1959' alt='' />
           </picture>
         </div>
         <div className='container'>
@@ -24,7 +25,7 @@ export default function ContactsPage(): JSX.Element {
               <div className='contacts__item'>
                 <dt className='contacts__dt'>Адрес</dt>
                 <dd className='contacts__dd'>
-                  <address className='contacts__address'>Санкт-Петербург,<br/> Набережная реки Карповка, д 5П</address>
+                  <address className='contacts__address'>Санкт-Петербург,<br /> Набережная реки Карповка, д 5П</address>
                 </dd>
               </div>
               <div className='contacts__item'>
@@ -46,7 +47,9 @@ export default function ContactsPage(): JSX.Element {
             </dl>
             <div className='contacts__map'>
               <div className='map'>
-                <div className='map__container'></div>
+                <div className='map__container'>
+                  <CityMap />
+                </div>
               </div>
             </div>
           </div>

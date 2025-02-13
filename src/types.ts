@@ -8,4 +8,15 @@ export type CardType = {
   peopleMinMax: number[];
 };
 
-export type CardBelonging = ' decorated-page';
+export type CardBelonging = ' decorated-page' | 'page-content';
+
+export type AuthData = {
+  email: string;
+  password: string;
+};
+
+export type UserType = {
+  name: string;
+  avatarUrl: string;
+  token: string;
+}
