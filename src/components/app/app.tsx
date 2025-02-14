@@ -48,7 +48,7 @@ export default function App(): JSX.Element {
       <Route
         path={RoutePath.Booking}
         element={
-          <PrivateRoute loginStatus={LoginStatus.Auth}>
+          <PrivateRoute loginStatus={LoginStatus.NotAuth}>
             <BookingPage/>
           </PrivateRoute>
         }
@@ -56,7 +56,7 @@ export default function App(): JSX.Element {
       <Route
         path={RoutePath.Favorites}
         element={
-          <PrivateRoute loginStatus={LoginStatus.Auth}>
+          <PrivateRoute loginStatus={LoginStatus.NotAuth}>
             <FavoritePage />
           </PrivateRoute>
         }
