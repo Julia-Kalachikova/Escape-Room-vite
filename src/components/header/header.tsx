@@ -31,7 +31,7 @@ export default function Header(): JSX.Element {
           </ul>
         </nav>
         <div className='header__side-nav'>
-          {!isAuth ? <LoginButton /> : < ExitButton />}
+          {isAuth ? < ExitButton /> : <LoginButton />}
           <Link className='link header__side-item header__phone-link' to='tel:88003335599'>{HeaderMenu.Phone}</Link>
         </div>
       </div>

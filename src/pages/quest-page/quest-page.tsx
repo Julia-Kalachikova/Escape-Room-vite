@@ -1,9 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import { RoutePath } from '../../const';
+import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
+import { useEffect } from 'react';
+import { getCardInfoByID } from '../../store/modules/quest/api-action-quest';
+import { getCardFull } from '../../store/modules/quest/selector-quest';
 
 export default function QuestPage(): JSX.Element {
+  const {id: cardId } = useParams();
+
+  const dispatch = useAppDispatch();
+
+  useEffect (() => {
+    if (cardId) {
+      dispatch(getCardInfoByID({cardId}));
+    }
+  }, [cardId, dispatch]);
+
+  const cardFull = useAppSelector(getCardFull);
   return (
     <div className='wrapper'>
       <Header />
@@ -12,11 +27,11 @@ export default function QuestPage(): JSX.Element {
           <picture>
             <source
               type='image/webp'
-              srcSet='img/content/maniac/maniac-size-m.webp, img/content/maniac/maniac-size-m@2x.webp 2x'
+              srcSet={cardFull?.previewImgWebp}
             />
             <img
-              src='img/content/maniac/maniac-size-m.jpg'
-              srcSet='img/content/maniac/maniac-size-m@2x.jpg 2x'
+              src={cardFull?.previewImg}
+              srcSet={cardFull?.coverImg}
               width='1366'
               height='768'
               alt=''
@@ -25,8 +40,8 @@ export default function QuestPage(): JSX.Element {
         </div>
         <div className='container container--size-l'>
           <div className='quest-page__content'>
-            <h1 className='title title--size-l title--uppercase quest-page__title'>Маньяк</h1>
-            <p className='subtitle quest-page__subtitle'><span className='visually-hidden'>Жанр:</span>Ужасы
+            <h1 className='title title--size-l title--uppercase quest-page__title'>{cardFull?.title}</h1>
+            <p className='subtitle quest-page__subtitle'><span className='visually-hidden'>Жанр:</span>{cardFull?.type}
             </p>
             <ul className='tags tags--size-l quest-page__tags'>
               <li className='tags__item'>
@@ -37,10 +52,10 @@ export default function QuestPage(): JSX.Element {
               <li className='tags__item'>
                 <svg width='14' height='14' aria-hidden='true'>
                   <use xlinkHref='#icon-level'></use>
-                </svg>Средний
+                </svg>{cardFull?.level}
               </li>
             </ul>
-            <p className='quest-page__description'>В&nbsp;комнате с&nbsp;приглушённым светом несколько человек, незнакомых друг с&nbsp;другом, приходят в&nbsp;себя. Никто не&nbsp;помнит, что произошло прошлым вечером. Руки и&nbsp;ноги связаны, но&nbsp;одному из&nbsp;вас получилось освободиться. На&nbsp;стене висит пугающий таймер и&nbsp;запущен отсчёт 60&nbsp;минут. Сможете&nbsp;ли вы&nbsp;разобраться в&nbsp;стрессовой ситуации, помочь другим, разобраться что произошло и&nbsp;выбраться из&nbsp;комнаты?</p>
+            <p className='quest-page__description'>{cardFull?.description}</p>
             <Link className='btn btn--accent btn--cta quest-page__btn' to={RoutePath.Booking}>Забронировать</Link>
           </div>
         </div>

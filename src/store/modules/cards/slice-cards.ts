@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CardType } from '../../../types';
 import { fetchCardsAction } from './api-action-cards';
+import { FeatureModule } from '../../../const';
 
 export type CardsSliceType = {
   cards: CardType[];
@@ -13,7 +14,7 @@ const initialState: CardsSliceType = {
 };
 
 export const cardsSlice = createSlice({
-  name: 'offersSlice',
+  name: FeatureModule.CARDS,
   initialState,
   reducers: {},
   extraReducers: (builder) => {
