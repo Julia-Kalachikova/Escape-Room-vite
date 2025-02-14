@@ -57,7 +57,7 @@ export default function App(): JSX.Element {
         path={RoutePath.Favorites}
         element={
           <PrivateRoute loginStatus={LoginStatus.Auth}>
-            <FavoritePage cards={cards}/>
+            <FavoritePage />
           </PrivateRoute>
         }
       />

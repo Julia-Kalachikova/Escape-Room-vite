@@ -16,7 +16,6 @@ export type AuthData = {
 };
 
 export type UserType = {
-  name: string;
-  avatarUrl: string;
+  email: string;
   token: string;
 }

@@ -1,4 +1,4 @@
-const AUTH_TOKEN_NAME = 'six-cities-token';// нужно получить
+const AUTH_TOKEN_NAME = 'b2xpdmVyLmNvbm5lckBnbWFpbC5jb20=' ;// нужно получить
 export type Token = string;
 
 export const getToken = () => {

@@ -1,14 +1,8 @@
 import CardList from '../../components/card-list/card-list';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-import { CardType } from '../../types';
 
-
-type Props = {
-  cards: CardType[];
-}
-
-export default function FavoritePage({cards}: Props): JSX.Element {
+export default function FavoritePage(): JSX.Element {
   return (
     <div className='wrapper'>
       <Header />
@@ -23,7 +17,7 @@ export default function FavoritePage({cards}: Props): JSX.Element {
           <div className='page-content__title-wrapper'>
             <h1 className='title title--size-m page-content__title'>Мои бронирования</h1>
           </div>
-          <CardList cards={cards} cardBelonging = ' decorated-page'/>
+          <CardList cardBelonging = ' decorated-page'/>
         </div>
       </main>
       <Footer />
