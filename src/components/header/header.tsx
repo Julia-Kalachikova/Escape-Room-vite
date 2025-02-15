@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
-import { HeaderMenu, RoutePath } from '../../const';
+import { HeaderMenu, LoginStatus, RoutePath } from '../../const';
+import { useAppSelector } from '../../store/store-hooks';
+import { getAuthStatus } from '../../store/modules/auth/selector-auth';
+import LoginButton from '../login-button/login-button';
+import ExitButton from '../exit-button/exit-button';
 
 export default function Header(): JSX.Element {
+  const authStatus = useAppSelector(getAuthStatus);
+  const isAuth = authStatus === LoginStatus.Auth;
+
   return (
     <header className='header'>
       <div className='container container--size-l'>
@@ -24,8 +31,8 @@ export default function Header(): JSX.Element {
           </ul>
         </nav>
         <div className='header__side-nav'>
-          <Link className='btn btn--accent header__side-item' to='#'>{HeaderMenu.Exit}</Link>
-          <Link className='link header__side-item header__phone-link' to='tel:88003335599'>8 (000) 111-11-11</Link>
+          {isAuth ? < ExitButton /> : <LoginButton />}
+          <Link className='link header__side-item header__phone-link' to='tel:88003335599'>{HeaderMenu.Phone}</Link>
         </div>
       </div>
     </header>

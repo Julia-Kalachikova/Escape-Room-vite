@@ -8,11 +8,19 @@ export type CardType = {
   peopleMinMax: number[];
 };
 
+export type CardTypeFull = {
+  description: string;
+  coverImg: string;
+  coverImgWebp: string;
+} & CardType
+
+
 export type CardBelonging = ' decorated-page' | 'page-content';
 
 export type AuthData = {
   email: string;
   password: string;
+  agreement: string;
 };
 
 export type UserType = {

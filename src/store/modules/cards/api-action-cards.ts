@@ -12,7 +12,7 @@ undefined,
   state: StateType;
   extra: AxiosInstance;
 }>(
-  'offers/get',
+  'cards/get',
   async (_arg, {extra: api}) => {
     const response = await api.get<CardType[]>(APIRoutes.Cards);
     return response?.data;

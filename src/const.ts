@@ -14,6 +14,8 @@ export enum HeaderMenu {
   Contact = 'Контакты',
   Favorites = 'Мои бронирования',
   Exit = 'Выйти',
+  Login = 'Вход',
+  Phone = '8 (000) 111-11-11',
 }
 
 export enum LoginStatus {
