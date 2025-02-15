@@ -20,6 +20,7 @@ export type CardBelonging = ' decorated-page' | 'page-content';
 export type AuthData = {
   email: string;
   password: string;
+  agreement: string;
 };
 
 export type UserType = {

@@ -1,4 +1,4 @@
-import CardList from '../../components/card-list/card-list';
+import FavoriteGroup from '../../components/favorite-group/favorite-group';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 
@@ -17,7 +17,7 @@ export default function FavoritePage(): JSX.Element {
           <div className='page-content__title-wrapper'>
             <h1 className='title title--size-m page-content__title'>Мои бронирования</h1>
           </div>
-          <CardList cardBelonging = ' decorated-page'/>
+          <FavoriteGroup />
         </div>
       </main>
       <Footer />

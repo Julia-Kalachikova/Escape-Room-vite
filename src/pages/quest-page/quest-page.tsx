@@ -10,6 +10,7 @@ import { getCardFull } from '../../store/modules/quest/selector-quest';
 export default function QuestPage(): JSX.Element {
   const {id: cardId } = useParams();
 
+
   const dispatch = useAppDispatch();
 
   useEffect (() => {

@@ -1,19 +1,26 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { loginAction } from '../../store/modules/auth/api-action-auth';
 import { useAppDispatch } from '../../store/store-hooks';
 import { AuthData } from '../../types';
+import { RoutePath } from '../../const';
 
 export default function LoginPage(): JSX.Element {
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm<AuthData>();
 
-  const onSubmit = (data: AuthData) => {
-    dispatch(loginAction({ email: data.email, password: data.password }));
+  const onSubmit: SubmitHandler<AuthData> = (data) => {
+    dispatch(loginAction({ email: data.email, password: data.password, agreement: data.agreement }))
+      .then((response) => {
+        if (response.meta.requestStatus === 'fulfilled') {
+          navigate(RoutePath.Main);
+        }
+      });
   };
 
 
@@ -52,9 +59,9 @@ export default function LoginPage(): JSX.Element {
                         required: 'Это поле обязательно',
                       })}
                     />
-                    {/* {errors.email && (
+                    {errors.email && (
                       <span className='error-message'>{errors.email.message}</span>
-                    )} */}
+                    )}
                   </div>
                   <div className='custom-input login-form__input'>
                     <label
@@ -82,9 +89,9 @@ export default function LoginPage(): JSX.Element {
                         },
                       })}
                     />
-                    {/* {errors.password && (
+                    {errors.password && (
                       <span className='error-message'>{errors.password.message}</span>
-                    )} */}
+                    )}
                   </div>
                 </div>
                 <button

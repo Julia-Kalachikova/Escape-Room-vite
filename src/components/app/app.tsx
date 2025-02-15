@@ -8,19 +8,29 @@ import PrivateRoute from '../private-rout/private-rout';
 import BookingPage from '../../pages/booking-page/booking-page';
 import FavoritePage from '../../pages/favorite-page/favorite-page';
 import ContactsPage from '../../pages/contacts-page/contacts-page';
-import { useAppDispatch } from '../../store/store-hooks';
+import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
 import { useEffect } from 'react';
 import { fetchCardsAction } from '../../store/modules/cards/api-action-cards';
 import { checkAuthStatus } from '../../store/modules/auth/api-action-auth';
+import { getAuthStatus } from '../../store/modules/auth/selector-auth';
+import { getIsLoadingCards } from '../../store/modules/cards/selector-cards';
+import Spinner from '../spinner/spinner';
 
 
 export default function App(): JSX.Element {
   const dispatch = useAppDispatch();
+  const authStatus = useAppSelector(getAuthStatus);
+  const isLoading = useAppSelector(getIsLoadingCards);
 
   useEffect(() => {
     dispatch(checkAuthStatus());
     dispatch(fetchCardsAction());
   }, [dispatch]);
+
+  if(isLoading || authStatus === LoginStatus.Unknown) {
+    return <Spinner/>;
+  }
+
   return (
     <Routes>
       <Route
@@ -48,7 +58,7 @@ export default function App(): JSX.Element {
       <Route
         path={RoutePath.Booking}
         element={
-          <PrivateRoute loginStatus={LoginStatus.NotAuth}>
+          <PrivateRoute loginStatus={authStatus}>
             <BookingPage/>
           </PrivateRoute>
         }
@@ -56,11 +66,12 @@ export default function App(): JSX.Element {
       <Route
         path={RoutePath.Favorites}
         element={
-          <PrivateRoute loginStatus={LoginStatus.NotAuth}>
+          <PrivateRoute loginStatus={authStatus}>
             <FavoritePage />
           </PrivateRoute>
         }
       />
+      <Route path={RoutePath.NOT_FOUND} element={<NotFoundPage />} />
     </Routes>
   );
 }
