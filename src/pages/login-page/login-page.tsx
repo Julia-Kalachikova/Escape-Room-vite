@@ -120,9 +120,9 @@ export default function LoginPage(): JSX.Element {
                   >правилами обработки персональных данных
                   </Link>&nbsp;и пользовательским соглашением
                 </span>
-                {/* {errors.agreement && (
+                {errors.agreement && (
                   <span className='error-message'>{errors.agreement.message}</span>
-                )} */}
+                )}
               </label>
             </form>
           </div>

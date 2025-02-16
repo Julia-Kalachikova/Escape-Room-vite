@@ -27,3 +27,8 @@ export type UserType = {
   email: string;
   token: string;
 }
+
+export type FilterLink = {
+  levelId: string;
+  levelName: string;
+};

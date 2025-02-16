@@ -27,7 +27,7 @@ export const loginAction = createAsyncThunk<UserType, AuthData, {
   extra: AxiosInstance;
 }
 >('user/login',
-  async ({ email, password }, { extra: api }) => {
+  async ({ email, password }, {extra: api }) => {
     const response = await api.post<UserType>(APIRoutes.Login, { email, password });
     if (response) {
       saveToken(response.data.token);

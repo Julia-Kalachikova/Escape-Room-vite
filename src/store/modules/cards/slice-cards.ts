@@ -1,16 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CardType } from '../../../types';
 import { fetchCardsAction } from './api-action-cards';
-import { FeatureModule } from '../../../const';
+import { FeatureModule, FilterLevel } from '../../../const';
+import { changeLevelName } from './action-cards';
 
 export type CardsSliceType = {
   cards: CardType[];
   isLoadingCards: boolean;
+  currentLevel: string;
 }
 
 const initialState: CardsSliceType = {
   cards: [],
   isLoadingCards: true,
+  currentLevel: FilterLevel.ANY,
 };
 
 export const cardsSlice = createSlice({
@@ -28,6 +31,9 @@ export const cardsSlice = createSlice({
       })
       .addCase(fetchCardsAction.rejected, (state) => {
         state.isLoadingCards = false;
+      })
+      .addCase(changeLevelName, (state, action) => {
+        state.currentLevel = action.payload;
       });
   },
 });

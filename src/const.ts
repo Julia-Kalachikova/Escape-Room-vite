@@ -1,3 +1,4 @@
+import { FilterLink } from "./types";
 
 export enum RoutePath {
   Main = '/',
@@ -36,3 +37,19 @@ export const FeatureModule = {
   FAVORITE: 'favorite',
   AUTH: 'auth',
 } as const;
+
+export enum FilterLevel {
+  ANY = 'any',
+  EASY = 'easy',
+  MIDDLE = 'middle',
+  HARD = 'hard',
+}
+
+export const GenreFilterArray = ['Все квесты', 'Приключения', 'Ужасы', 'Мистика', 'Детектив', 'Sci-fi'] as const;
+export const LevelFilterArrayE = ['any', 'easy', 'middle', 'hard'] as const;
+export const LevelFilterArray: FilterLink[] = [
+  {levelId: 'any', levelName: 'Любой'},
+  {levelId: 'easy', levelName:'Лёгкий'},
+  {levelId: 'middle', levelName:'Средний'},
+  {levelId: 'hard', levelName:'Сложный'}
+];
