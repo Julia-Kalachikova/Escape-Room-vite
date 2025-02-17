@@ -1,75 +1,39 @@
-// import { GenreFilterArray } from "../../../const";
+import { GenreFilterArray } from '../../../const';
+import { changeGenreName } from '../../../store/modules/cards/action-cards';
+import { getCurrentGenre } from '../../../store/modules/cards/selector-cards';
+import { useAppDispatch, useAppSelector } from '../../../store/store-hooks';
+
 
 export default function FilterGenre(): JSX.Element {
+  const currentGenre = useAppSelector(getCurrentGenre);
+  const dispatch = useAppDispatch();
+  const onHandleFilterGenreChange = (id: string) => {
+    dispatch(changeGenreName(id));
+  };
+
   return (
     <fieldset className='filter__section'>
       <legend className='visually-hidden'>Тематика</legend>
       <ul className='filter__list'>
-        {/* {GenreFilterArray.map((genreName) => (
-          <li className='filter__item'>
+        {GenreFilterArray.map((link) => (
+          <li key={link.id} className='filter__item'>
             <input
               type='radio'
               name='type'
-              id='all'
-              defaultChecked
+              id={link.id}
+              checked={link.id === currentGenre || (link.id === 'any' && !currentGenre)}
+              onChange={() => onHandleFilterGenreChange(link.id)}
             />
             <label
               className='filter__label'
-                htmlFor='all'>
+              htmlFor={link.id}
+            >
               <svg className='filter__icon' width='26' height='30' aria-hidden='true'>
-                <use xlinkHref='#icon-all-quests'></use>
-              </svg><span className='filter__label-text'>Все квесты</span>
+                <use xlinkHref={link.xlinkHref}></use>
+              </svg><span className='filter__label-text'>{link.genreName}</span>
             </label>
           </li>
-        ))} */}
-        <li className='filter__item'>
-          <input type='radio' name='type' id='all' defaultChecked />
-          <label className='filter__label' htmlFor='all'>
-            <svg className='filter__icon' width='26' height='30' aria-hidden='true'>
-              <use xlinkHref='#icon-all-quests'></use>
-            </svg><span className='filter__label-text'>Все квесты</span>
-          </label>
-        </li>
-        <li className='filter__item'>
-          <input type='radio' name='type' id='adventure' />
-          <label className='filter__label' htmlFor='adventure'>
-            <svg className='filter__icon' width='36' height='30' aria-hidden='true'>
-              <use xlinkHref='#icon-adventure'></use>
-            </svg><span className='filter__label-text'>Приключения</span>
-          </label>
-        </li>
-        <li className='filter__item'>
-          <input type='radio' name='type' id='horror' />
-          <label className='filter__label' htmlFor='horror'>
-            <svg className='filter__icon' width='30' height='30' aria-hidden='true'>
-              <use xlinkHref='#icon-horror'></use>
-            </svg><span className='filter__label-text'>Ужасы</span>
-          </label>
-        </li>
-        <li className='filter__item'>
-          <input type='radio' name='type' id='mystic' />
-          <label className='filter__label' htmlFor='mystic'>
-            <svg className='filter__icon' width='30' height='30' aria-hidden='true'>
-              <use xlinkHref='#icon-mystic'></use>
-            </svg><span className='filter__label-text'>Мистика</span>
-          </label>
-        </li>
-        <li className='filter__item'>
-          <input type='radio' name='type' id='detective' />
-          <label className='filter__label' htmlFor='detective'>
-            <svg className='filter__icon' width='40' height='30' aria-hidden='true'>
-              <use xlinkHref='#icon-detective'></use>
-            </svg><span className='filter__label-text'>Детектив</span>
-          </label>
-        </li>
-        <li className='filter__item'>
-          <input type='radio' name='type' id='sciFi' />
-          <label className='filter__label' htmlFor='sciFi'>
-            <svg className='filter__icon' width='28' height='30' aria-hidden='true'>
-              <use xlinkHref='#icon-sci-fi'></use>
-            </svg><span className='filter__label-text'>Sci-fi</span>
-          </label>
-        </li>
+        ))}
       </ul>
     </fieldset>
   );

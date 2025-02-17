@@ -1,4 +1,4 @@
-const AUTH_TOKEN_NAME = 'b2xpdmVyLmNvbm5lckBnbWFpbC5jb20=' ;// нужно получить
+const AUTH_TOKEN_NAME = 'b2xpdmVyLmNvbm5lckBnbWFpbC5jb20=' ;
 export type Token = string;
 
 export const getToken = () => {

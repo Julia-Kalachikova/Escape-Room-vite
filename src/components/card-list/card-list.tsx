@@ -1,6 +1,7 @@
 import { CardType } from '../../types';
 import Card from '../card/card';
 
+
 type Props = {
   cards: CardType[];
 }

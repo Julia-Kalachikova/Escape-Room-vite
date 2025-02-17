@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { StateType } from '../../types';
 import { AuthData, UserType } from '../../../types';
 import { AxiosInstance } from 'axios';

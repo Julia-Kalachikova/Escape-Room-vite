@@ -2,14 +2,18 @@ import CardList from '../../components/card-list/card-list';
 import FilterGroup from '../../components/filter-group/filter-group';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-import { getCards, getCurrentLevel } from '../../store/modules/cards/selector-cards';
+import { getCards, getCurrentGenre, getCurrentLevel } from '../../store/modules/cards/selector-cards';
 import { useAppSelector } from '../../store/store-hooks';
 import { CardType } from '../../types';
 
 export default function MainPage(): JSX.Element {
   const currentLevel = useAppSelector(getCurrentLevel);
+  const currentGenre = useAppSelector(getCurrentGenre);
   const cards = useAppSelector(getCards);
-  const cardsFiltered: CardType[] = cards.filter((card) => card.level === currentLevel);
+
+  const cardsFilteredGenre: CardType[] = currentGenre === 'all' ? cards : cards.filter((card) => card.type === currentGenre);
+  const cardsFiltered: CardType[] = currentLevel === 'any' ? cardsFilteredGenre : cardsFilteredGenre.filter((card) => card.level === currentLevel);
+
   return (
     <div className='wrapper'>
       <Header />

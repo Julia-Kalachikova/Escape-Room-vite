@@ -3,8 +3,8 @@ export type CardType = {
   title: string;
   previewImg: string;
   previewImgWebp: string;
-  level: string;
-  type: string;
+  level: string | null;
+  type: string | null;
   peopleMinMax: number[];
 };
 
@@ -28,7 +28,13 @@ export type UserType = {
   token: string;
 }
 
-export type FilterLink = {
+export type LevelFilterLink = {
   levelId: string;
   levelName: string;
+};
+
+export type GenreFilterLink = {
+  id: string;
+  xlinkHref: string;
+  genreName: string;
 };

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+
+import LoginButton from '../login-button/login-button';
+import ExitButton from '../exit-button/exit-button';
 import { HeaderMenu, LoginStatus, RoutePath } from '../../const';
 import { useAppSelector } from '../../store/store-hooks';
 import { getAuthStatus } from '../../store/modules/auth/selector-auth';
-import LoginButton from '../login-button/login-button';
-import ExitButton from '../exit-button/exit-button';
+
 
 export default function Header(): JSX.Element {
   const authStatus = useAppSelector(getAuthStatus);

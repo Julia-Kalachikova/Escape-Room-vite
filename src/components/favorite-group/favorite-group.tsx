@@ -1,6 +1,6 @@
+import Card from '../card/card';
 import { getCards } from '../../store/modules/cards/selector-cards';
 import { useAppSelector } from '../../store/store-hooks';
-import Card from '../card/card';
 
 
 export default function FavoriteGroup(): JSX.Element {

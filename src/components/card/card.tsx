@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-import { CardBelonging, CardType } from '../../types';
-import { RoutePath } from '../../const';
+
 import QuestCardInfo from '../quest-card-info/quest-card-info';
 import ButtonCancel from '../button-cancel/button-cancel';
+
+import { CardBelonging, CardType } from '../../types';
+import { RoutePath } from '../../const';
+
 
 type Props = {
   card: CardType;
@@ -30,7 +33,7 @@ export default function Card({card, cardBelonging}: Props): JSX.Element {
       </div>
       <div className='quest-card__content'>
         <div className='quest-card__info-wrapper'>
-          <Link className='quest-card__link' to={RoutePath.Quest}>{title}</Link>
+          <Link className='quest-card__link' to={RoutePath.Quest.replace(':id', card.id)}>{title}</Link>
           {cardBelonging === ' decorated-page' ? <QuestCardInfo/> : ''}
         </div>
         <ul className='tags quest-card__tags'>

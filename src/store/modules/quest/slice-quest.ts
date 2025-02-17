@@ -3,6 +3,7 @@ import { CardTypeFull } from '../../../types';
 import { FeatureModule } from '../../../const';
 import { getCardInfoByID } from './api-action-quest';
 
+
 export type CardSliceType = {
   cardFull: CardTypeFull | null;
   cardLoadingFull: boolean;

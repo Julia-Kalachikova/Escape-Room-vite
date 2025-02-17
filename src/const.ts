@@ -1,4 +1,5 @@
-import { FilterLink } from "./types";
+import { GenreFilterLink, LevelFilterLink } from './types';
+
 
 export enum RoutePath {
   Main = '/',
@@ -38,16 +39,56 @@ export const FeatureModule = {
   AUTH: 'auth',
 } as const;
 
+
+export enum FilterGenre {
+  ALL='all',
+  ADVENTURE ='adventure',
+  HORROR = 'horror',
+  MYSTIC = 'mystic',
+  DETECTIVE = 'detective',
+  SCIFI = 'sciFi',
+}
+
+export const GenreFilterArray: GenreFilterLink[] = [
+  {
+    id: 'all',
+    xlinkHref: '#icon-all-quests',
+    genreName: 'Все квесты'
+  },
+  {
+    id: 'adventure',
+    xlinkHref: '#icon-adventure',
+    genreName: 'Приключения'
+  },
+  {
+    id: 'horror',
+    xlinkHref: '#icon-horror',
+    genreName: 'Ужасы'
+  },
+  {
+    id: 'mystic',
+    xlinkHref: '#icon-mystic',
+    genreName: 'Мистика'
+  },
+  {
+    id: 'detective',
+    xlinkHref: '#icon-detective',
+    genreName: 'Детектив'
+  },
+  {
+    id: 'sciFi',
+    xlinkHref: '#icon-sci-fi',
+    genreName: 'Sci-fi'
+  }
+];
+
 export enum FilterLevel {
   ANY = 'any',
   EASY = 'easy',
   MIDDLE = 'middle',
   HARD = 'hard',
 }
-
-export const GenreFilterArray = ['Все квесты', 'Приключения', 'Ужасы', 'Мистика', 'Детектив', 'Sci-fi'] as const;
-export const LevelFilterArrayE = ['any', 'easy', 'middle', 'hard'] as const;
-export const LevelFilterArray: FilterLink[] = [
+export const LevelFilterArray: LevelFilterLink[] = [
   {levelId: 'any', levelName: 'Любой'},
   {levelId: 'easy', levelName:'Лёгкий'},
   {levelId: 'middle', levelName:'Средний'},

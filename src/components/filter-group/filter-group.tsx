@@ -1,6 +1,6 @@
-
 import FilterGenre from './filter-genre/filter-genre';
 import FilterLevel from './filter-level/filter-level';
+
 
 export default function FilterGroup(): JSX.Element {
   return (

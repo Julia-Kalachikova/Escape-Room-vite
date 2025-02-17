@@ -1,5 +1,7 @@
 import { Navigate } from 'react-router-dom';
+
 import { LoginStatus, RoutePath } from '../../const';
+
 
 type PrivateRoutProps = {
   children: JSX.Element;

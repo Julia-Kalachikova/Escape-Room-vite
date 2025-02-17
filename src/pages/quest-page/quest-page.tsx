@@ -1,15 +1,16 @@
 import { Link, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import { RoutePath } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
-import { useEffect } from 'react';
 import { getCardInfoByID } from '../../store/modules/quest/api-action-quest';
 import { getCardFull } from '../../store/modules/quest/selector-quest';
 
-export default function QuestPage(): JSX.Element {
-  const {id: cardId } = useParams();
 
+export default function QuestPage(): JSX.Element {
+  const { id : cardId } = useParams();
 
   const dispatch = useAppDispatch();
 
@@ -48,7 +49,7 @@ export default function QuestPage(): JSX.Element {
               <li className='tags__item'>
                 <svg width='11' height='14' aria-hidden='true'>
                   <use xlinkHref='#icon-person'></use>
-                </svg>3&ndash;6&nbsp;чел
+                </svg>{cardFull?.peopleMinMax[0]} - {cardFull?.peopleMinMax[1]} чел
               </li>
               <li className='tags__item'>
                 <svg width='14' height='14' aria-hidden='true'>

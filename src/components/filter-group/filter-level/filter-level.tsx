@@ -4,12 +4,15 @@ import { getCurrentLevel } from '../../../store/modules/cards/selector-cards';
 import { changeLevelName } from '../../../store/modules/cards/action-cards';
 
 
-export default function FilterLevelApp(): JSX.Element {
+export default function FilterLevel(): JSX.Element {
   const currentLevel = useAppSelector(getCurrentLevel);
   const dispatch = useAppDispatch();
-  const onHandleFilterGenreChange = (id: string) => {
+
+
+  const onHandleFilterLevelChange = (id: string) => {
     dispatch(changeLevelName(id));
   };
+
 
   return (
     <fieldset className='filter__section'>
@@ -21,8 +24,8 @@ export default function FilterLevelApp(): JSX.Element {
               type='radio'
               name='level'
               id={link.levelId}
-              checked={link.levelId === currentLevel}
-              onChange={() => onHandleFilterGenreChange(link.levelId)}
+              checked={link.levelId === currentLevel || (link.levelId === 'any' && !currentLevel)}
+              onChange={() => onHandleFilterLevelChange(link.levelId)}
             />
             <label className='filter__label' htmlFor={link.levelId}>
               <span className='filter__label-text'>{link.levelName}</span>

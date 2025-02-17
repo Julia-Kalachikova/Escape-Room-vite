@@ -2,6 +2,7 @@ import FavoriteGroup from '../../components/favorite-group/favorite-group';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 
+
 export default function FavoritePage(): JSX.Element {
   return (
     <div className='wrapper'>

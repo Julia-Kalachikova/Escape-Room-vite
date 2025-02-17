@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { LoginStatus, RoutePath } from '../../const';
+import { useEffect } from 'react';
+
 import MainPage from '../../pages/main-page/main-page';
 import LoginPage from '../../pages/login-page/login-page';
 import QuestPage from '../../pages/quest-page/quest-page';
@@ -8,13 +9,14 @@ import PrivateRoute from '../private-rout/private-rout';
 import BookingPage from '../../pages/booking-page/booking-page';
 import FavoritePage from '../../pages/favorite-page/favorite-page';
 import ContactsPage from '../../pages/contacts-page/contacts-page';
+import Spinner from '../spinner/spinner';
+
+import { LoginStatus, RoutePath } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../store/store-hooks';
-import { useEffect } from 'react';
 import { fetchCardsAction } from '../../store/modules/cards/api-action-cards';
 import { checkAuthStatus } from '../../store/modules/auth/api-action-auth';
 import { getAuthStatus } from '../../store/modules/auth/selector-auth';
 import { getIsLoadingCards } from '../../store/modules/cards/selector-cards';
-import Spinner from '../spinner/spinner';
 
 
 export default function App(): JSX.Element {

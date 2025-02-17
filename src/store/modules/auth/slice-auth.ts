@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { FeatureModule, LoginStatus } from '../../../const';
 import { UserType } from '../../../types';
 import { checkAuthStatus, loginAction, logoutAction } from './api-action-auth';
+
 
 export type UserSliceType = {
   authStatus: LoginStatus;

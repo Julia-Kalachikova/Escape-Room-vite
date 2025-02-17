@@ -1,7 +1,8 @@
-import 'leaflet/dist/leaflet.css';
 import { Marker } from 'leaflet';
 import { Map, TileLayer, Icon } from 'leaflet';
 import { useEffect, useRef } from 'react';
+import 'leaflet/dist/leaflet.css';
+
 
 type LocationType = {
   latitude: number;

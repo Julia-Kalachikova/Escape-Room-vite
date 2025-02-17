@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+
 export default function BookingForm(): JSX.Element {
   return (
     <form className='booking-form' action='https://echo.htmlacademy.ru/' method='post'>

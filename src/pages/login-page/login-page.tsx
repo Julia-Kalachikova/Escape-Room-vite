@@ -1,11 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { loginAction } from '../../store/modules/auth/api-action-auth';
 import { useAppDispatch } from '../../store/store-hooks';
 import { AuthData } from '../../types';
 import { RoutePath } from '../../const';
+
 
 export default function LoginPage(): JSX.Element {
 
@@ -22,7 +24,6 @@ export default function LoginPage(): JSX.Element {
         }
       });
   };
-
 
   return (
     <div className='wrapper'>

@@ -1,9 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
+
 import { CardType } from '../../../types';
 import { APIRoutes } from '../../../const';
 import { store } from '../../index-store';
 import { StateType } from '../../types';
-import { AxiosInstance } from 'axios';
+
 
 export const fetchCardsAction = createAsyncThunk<CardType[],
 undefined,
